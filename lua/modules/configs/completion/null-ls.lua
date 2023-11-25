@@ -17,7 +17,7 @@ return function()
 	-- Don't specify any config here if you are using the default one.
 	local sources = {
 		btns.formatting.clang_format.with({
-			filetypes = { "c", "cpp" },
+			filetypes = { "c", "cpp" , "java"}, -- for clang-format format java
 			extra_args = formatter_args("clang_format"),
 		}),
 		btns.formatting.prettier.with({

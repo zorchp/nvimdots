@@ -1,10 +1,10 @@
 local ui = {}
 
-ui["goolord/alpha-nvim"] = {
-	lazy = true,
-	event = "BufWinEnter",
-	config = require("ui.alpha"),
-}
+-- ui["goolord/alpha-nvim"] = {
+-- 	lazy = true,
+-- 	event = "BufWinEnter",
+-- 	config = require("ui.alpha"),
+-- }
 ui["akinsho/bufferline.nvim"] = {
 	lazy = true,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
@@ -13,8 +13,8 @@ ui["akinsho/bufferline.nvim"] = {
 ui["Jint-lzxy/nvim"] = {
 	lazy = false,
 	branch = "refactor/syntax-highlighting",
-	name = "catppuccin",
-	config = require("ui.catppuccin"),
+	-- name = "catppuccin",
+	-- config = require("ui.catppuccin"),
 }
 ui["j-hui/fidget.nvim"] = {
 	lazy = true,

@@ -49,6 +49,7 @@ return vim.schedule_wrap(function()
 				},
 			},
 		},
+		context_commentstring = { enable = true, enable_autocmd = false }, -- for suppress warning
 		indent = { enable = true },
 		matchup = { enable = true },
 	}, false, require("nvim-treesitter.configs").setup)

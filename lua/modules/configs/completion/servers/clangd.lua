@@ -54,6 +54,7 @@ return function(options)
 			"--header-insertion=iwyu",
 			"--limit-references=3000",
 			"--limit-results=350",
+			"--fallback-style=Google", -- default format style
 		},
 		commands = {
 			ClangdSwitchSourceHeader = {

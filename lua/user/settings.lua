@@ -12,7 +12,7 @@ settings["treesitter_deps"] = {
 	"java",
 }
 settings["lsp_deps"] = {
-	-- "gopls",
+	"gopls",
 }
 
 return settings

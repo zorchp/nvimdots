@@ -147,6 +147,26 @@ local function CodeRunner()
 	})
 
 	vim.api.nvim_create_autocmd("FileType", {
+		pattern = "go",
+		callback = function()
+			vim.api.nvim_buf_set_keymap(
+				0,
+				"n",
+				"<F8>",
+				":w<CR>:split<CR>:te go run %:p <CR>",
+				{ silent = true, noremap = true }
+			)
+			vim.api.nvim_buf_set_keymap(
+				0,
+				"i",
+				"<F8>",
+				"<ESC>:w<CR>:split<CR>:te go run %:p <CR>",
+				{ silent = true, noremap = true }
+			)
+		end,
+	})
+
+	vim.api.nvim_create_autocmd("FileType", {
 		pattern = "rust",
 		callback = function()
 			vim.api.nvim_buf_set_keymap(

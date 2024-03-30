@@ -83,30 +83,30 @@ local function CodeRunner()
 				0,
 				"n",
 				"<F7>",
-				"<ESC>:w<CR>:split<CR>:te g++-13 -Wl,-ld_classic -std=c++2a -Wshadow -Wall -o %:p:r.out %:p  && time %:p:r.out<CR>",
+				"<ESC>:w<CR>:split<CR>:te g++-13 -Wl,-ld_classic -std=c++20 -Wshadow -Wall -o %:p:r.out %:p  && time %:p:r.out<CR>",
 				{ silent = true, noremap = true }
 			)
 			vim.api.nvim_buf_set_keymap(
 				0,
 				"n",
 				"<F8>",
-				"<ESC>:w<CR>:split<CR>:te clang++ -std=c++2a -Wshadow -Wall -o %:p:r.out %:p -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG -frelaxed-template-template-args && time %:p:r.out<CR>",
-				-- "<ESC>:w<CR>:split<CR>:te clang++ -std=c++2a -Wshadow -Wall -o %:p:r.out %:p && time %:p:r.out<CR>",
+				"<ESC>:w<CR>:split<CR>:te clang++ -std=c++20 -Wshadow -Wall -o %:p:r.out %:p -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG -frelaxed-template-template-args && time %:p:r.out<CR>",
+				-- "<ESC>:w<CR>:split<CR>:te clang++ -std=c++20 -Wshadow -Wall -o %:p:r.out %:p && time %:p:r.out<CR>",
 				{ silent = true, noremap = true }
 			)
 			vim.api.nvim_buf_set_keymap(
 				0,
 				"i",
 				"<F7>",
-				"<ESC>:w<CR>:split<CR>:te g++-13 -Wl,-ld_classic -std=c++2a -Wshadow -Wall -o %:p:r.out %:p  && time %:p:r.out<CR>",
+				"<ESC>:w<CR>:split<CR>:te g++-13 -Wl,-ld_classic -std=c++20 -Wshadow -Wall -o %:p:r.out %:p  && time %:p:r.out<CR>",
 				{ silent = true, noremap = true }
 			)
 			vim.api.nvim_buf_set_keymap(
 				0,
 				"i",
 				"<F8>",
-				-- "<ESC>:w<CR>:split<CR>:te clang++ -std=c++2a -Wshadow -Wall -o %:p:r.out %:p && time %:p:r.out<CR>",
-				"<ESC>:w<CR>:split<CR>:te clang++ -std=c++2a -Wshadow -Wall -o %:p:r.out %:p -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG -frelaxed-template-template-args && time %:p:r.out<CR>",
+				-- "<ESC>:w<CR>:split<CR>:te clang++ -std=c++20 -Wshadow -Wall -o %:p:r.out %:p && time %:p:r.out<CR>",
+				"<ESC>:w<CR>:split<CR>:te clang++ -std=c++20 -Wshadow -Wall -o %:p:r.out %:p -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG -frelaxed-template-template-args && time %:p:r.out<CR>",
 				{ silent = true, noremap = true }
 			)
 		end,
@@ -201,7 +201,6 @@ local function CodeRunner()
 	})
 
 	--[===[===================== Script ====================]===]
-	--
 	vim.api.nvim_create_autocmd("FileType", {
 		pattern = "python",
 		callback = function()
@@ -243,65 +242,19 @@ local function CodeRunner()
 	})
 
 	vim.api.nvim_create_autocmd("FileType", {
-		pattern = "make",
+		pattern = "sh",
 		callback = function()
-			vim.api.nvim_buf_set_keymap(
-				0,
-				"i",
-				"<F7>",
-				"<ESC>:w<CR>:split<CR>:te make <CR>i",
-				{ silent = true, noremap = true }
-			)
 			vim.api.nvim_buf_set_keymap(
 				0,
 				"i",
 				"<F8>",
-				"<ESC>:w<CR>:split<CR>:te make clean<CR>i",
-				{ silent = true, noremap = true }
-			)
-			vim.api.nvim_buf_set_keymap(
-				0,
-				"n",
-				"<F7>",
-				"<ESC>:w<CR>:split<CR>:te make <CR>i",
-				{ silent = true, noremap = true }
-			)
-			vim.api.nvim_buf_set_keymap(
-				0,
-				"n",
-				"<F8>",
-				"<ESC>:w<CR>:split<CR>:te make clean<CR>i",
-				{ silent = true, noremap = true }
-			)
-		end,
-	})
-	vim.api.nvim_create_autocmd("FileType", {
-		pattern = "cmake",
-		callback = function()
-			vim.api.nvim_buf_set_keymap(
-				0,
-				"n",
-				"<F7>",
-				"<ESC>:w<CR>:split<CR>:te cmake .<CR>",
-				{ silent = true, noremap = true }
-			)
-		end,
-	})
-
-	vim.api.nvim_create_autocmd("FileType", {
-		pattern = "shell",
-		callback = function()
-			vim.api.nvim_buf_set_keymap(
-				0,
-				"i",
-				"<F7>",
 				"<ESC>:w<CR>:split<CR>:te bash %<CR>",
 				{ silent = true, noremap = true }
 			)
 			vim.api.nvim_buf_set_keymap(
 				0,
 				"n",
-				"<F7>",
+				"<F8>",
 				"<ESC>:w<CR>:split<CR>:te bash %<CR>",
 				{ silent = true, noremap = true }
 			)
@@ -309,27 +262,7 @@ local function CodeRunner()
 	})
 
 	--[===[==================== TypeWritting ===================]===]
-
 	-- use vimtex instead
-	-- vim.api.nvim_create_autocmd("FileType", {
-	-- 	pattern = "tex",
-	-- 	callback = function()
-	-- 		vim.api.nvim_buf_set_keymap(
-	-- 			0,
-	-- 			"i",
-	-- 			"<F8>",
-	-- 			"<ESC>:w<CR>:split<CR>:te latexmk %<CR>",
-	-- 			{ silent = true, noremap = true }
-	-- 		)
-	-- 		vim.api.nvim_buf_set_keymap(
-	-- 			0,
-	-- 			"n",
-	-- 			"<F8>",
-	-- 			"<ESC>:w<CR>:split<CR>:te latexmk %<CR>",
-	-- 			{ silent = true, noremap = true }
-	-- 		)
-	-- 	end,
-	-- })
 end
 
 CodeRunner()

@@ -14,5 +14,8 @@ settings["treesitter_deps"] = {
 settings["lsp_deps"] = {
 	"gopls",
 }
+settings["null_ls_deps"] = {
+	"autopep8", -- for python formatter
+}
 
 return settings

@@ -15,7 +15,7 @@ settings["lsp_deps"] = {
 	"gopls",
 }
 settings["null_ls_deps"] = {
-	"autopep8", -- for python formatter
+	"black", -- for python formatter
 }
 
 return settings
